@@ -6,5 +6,6 @@
     <!-- Hero Section -->
     <x-hero />
     
-    <!-- بقیه بخش‌ها بعداً اضافه می‌شن -->
+    <!-- About Section -->
+    <x-about />
 @endsection
