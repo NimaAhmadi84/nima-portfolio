@@ -1,0 +1,221 @@
+/* About Section */
+.about-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+body.dark-mode .about-section {
+    background: #0f172a;
+}
+
+/* کادر اصلی با border */
+.about-wrapper {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .about-wrapper {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Label با انیمیشن خط */
+.section-label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-label {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.4rem 1rem;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 50px;
+}
+
+.section-line {
+    display: inline-block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), #60a5fa);
+    border-radius: 3px;
+    animation: expandLine 1s ease-out;
+}
+
+@keyframes expandLine {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 60px;
+        opacity: 1;
+    }
+}
+
+/* About Content */
+.about-content {
+    background: transparent;
+    border-right: 3px solid var(--primary-color);
+}
+
+/* Timeline Wrapper */
+.timeline-wrapper {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    padding: 2rem 2rem 2rem 3rem;
+    position: relative;
+}
+
+body.dark-mode .timeline-wrapper {
+    background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+}
+
+/* خط پس‌زمینه Timeline */
+.timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    right: 1.5rem;
+    top: 2rem;
+    bottom: 2rem;
+    width: 2px;
+    background: rgba(37, 99, 235, 0.2);
+    border-radius: 2px;
+}
+
+/* خط پر شونده */
+.timeline-progress {
+    position: absolute;
+    right: 1.5rem;
+    top: 2rem;
+    width: 2px;
+    height: 0;
+    background: linear-gradient(to bottom, var(--primary-color), #60a5fa);
+    border-radius: 2px;
+    transition: height 0.6s ease;
+    z-index: 1;
+}
+
+/* Timeline Items */
+.timeline-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    cursor: pointer;
+}
+
+body.dark-mode .timeline-item {
+    background: #0f172a;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 5px 20px rgba(37, 99, 235, 0.15);
+}
+
+.timeline-item.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 25px rgba(37, 99, 235, 0.2);
+    transform: translateX(-8px);
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* نقطه Timeline */
+.timeline-dot {
+    position: absolute;
+    right: -3.5rem;
+    top: 2rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid rgba(37, 99, 235, 0.3);
+    transition: all 0.4s ease;
+    z-index: 2;
+}
+
+body.dark-mode .timeline-dot {
+    background: #0f172a;
+}
+
+.timeline-item:hover .timeline-dot {
+    border-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+.timeline-item.active .timeline-dot {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: scale(1.4);
+    box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.3);
+}
+
+/* Timeline Badge */
+.timeline-badge {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+}
+
+/* Timeline Body */
+.timeline-body h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-body p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .about-wrapper {
+        padding: 2rem;
+    }
+    
+    .about-content {
+        border-right: none;
+        border-bottom: 3px solid var(--primary-color);
+        padding-bottom: 2rem;
+    }
+    
+    .timeline-wrapper {
+        padding: 2rem 2rem 2rem 2.5rem;
+    }
+    
+    .timeline-wrapper::before,
+    .timeline-progress {
+        right: 1rem;
+    }
+    
+    .timeline-item {
+        padding-right: 1.5rem;
+        padding-left: 2.5rem;
+    }
+    
+    .timeline-dot {
+        right: -2.5rem;
+    }
+}
