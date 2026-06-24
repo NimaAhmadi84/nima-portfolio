@@ -1,25 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
     const timelineItems = document.querySelectorAll('.timeline-item');
     const timelineProgress = document.getElementById('timelineProgress');
+    const timelineWrapper = document.querySelector('.timeline-wrapper');
     
-    if (!timelineItems.length || !timelineProgress) return;
+    if (!timelineItems.length || !timelineProgress || !timelineWrapper) return;
     
     function updateProgressLine(activeItem) {
-        const wrapper = document.querySelector('.timeline-wrapper');
+        const wrapper = timelineWrapper;
         const wrapperRect = wrapper.getBoundingClientRect();
         
-        // پیدا کردن نقطه (dot) آیتم فعال
-        const dot = activeItem.querySelector('.timeline-dot');
-        const dotRect = dot.getBoundingClientRect();
+        // آیا این آیتم آخره؟
+        const isLastItem = activeItem === timelineItems[timelineItems.length - 1];
         
-        // محاسبه فاصله از بالای wrapper تا مرکز نقطه
-        const topOffset = dotRect.top - wrapperRect.top + (dotRect.height / 2);
-        
-        // تنظیم ارتفاع خط
-        timelineProgress.style.height = topOffset + 'px';
+        if (isLastItem) {
+            // اگه آیتم آخره، خط باید تا پایین wrapper برسه
+            const bottomOffset = wrapperRect.height - 65; // ← عدد از 40 به 55 تغییر کرد
+            timelineProgress.style.height = bottomOffset + 'px';
+        } else {
+            // برای بقیه آیتم‌ها، خط تا مرکز dot می‌رسه
+            const dot = activeItem.querySelector('.timeline-dot');
+            const dotRect = dot.getBoundingClientRect();
+            const topOffset = dotRect.bottom - wrapperRect.top + 4;
+            timelineProgress.style.height = topOffset + 'px';
+        }
     }
     
-    timelineItems.forEach((item, index) => {
+    timelineItems.forEach((item) => {
         item.addEventListener('click', function() {
             // حذف active از همه
             timelineItems.forEach(i => i.classList.remove('active'));
