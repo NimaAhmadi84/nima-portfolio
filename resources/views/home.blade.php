@@ -11,4 +11,7 @@
     
     <!-- Skills Section -->
     <x-skills />
+    
+    <!-- Contact Section -->
+    <x-contact />
 @endsection
