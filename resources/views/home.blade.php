@@ -8,4 +8,7 @@
     
     <!-- About Section -->
     <x-about />
+    
+    <!-- Skills Section -->
+    <x-skills />
 @endsection

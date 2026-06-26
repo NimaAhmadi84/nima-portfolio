@@ -1,0 +1,151 @@
+/* Skills Section */
+.skills-section {
+    padding: 5rem 0;
+    background: white;
+}
+
+body.dark-mode .skills-section {
+    background: #1e293b;
+}
+
+/* کادر اصلی */
+.skills-wrapper {
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .skills-wrapper {
+    background: #0f172a;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Section Label */
+.section-label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-label {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.4rem 1rem;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 50px;
+}
+
+.section-line {
+    display: inline-block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), #60a5fa);
+    border-radius: 3px;
+    animation: expandLine 1s ease-out;
+}
+
+@keyframes expandLine {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 60px;
+        opacity: 1;
+    }
+}
+
+/* دسته‌بندی‌ها */
+.skills-category {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    height: 100%;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .skills-category {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.skills-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+}
+
+/* عنوان دسته */
+.category-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(37, 99, 235, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.category-title i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+/* آیتم مهارت */
+.skill-item {
+    margin-bottom: 1.2rem;
+}
+
+.skill-item:last-child {
+    margin-bottom: 0;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.skill-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.skill-percent {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Progress Bar */
+.skill-progress {
+    height: 8px;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), #60a5fa);
+    border-radius: 10px;
+    width: 0;
+    transition: width 1.2s ease;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .skills-wrapper {
+        padding: 2rem;
+    }
+    
+    .skills-category {
+        margin-bottom: 1.5rem;
+    }
+}
