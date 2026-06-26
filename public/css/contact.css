@@ -1,0 +1,228 @@
+/* Contact Section */
+.contact-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+body.dark-mode .contact-section {
+    background: #0f172a;
+}
+
+.contact-wrapper {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .contact-wrapper {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-label {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.4rem 1rem;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 50px;
+}
+
+.section-line {
+    display: inline-block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), #60a5fa);
+    border-radius: 3px;
+    animation: expandLine 1s ease-out;
+}
+
+@keyframes expandLine {
+    from { width: 0; opacity: 0; }
+    to { width: 60px; opacity: 1; }
+}
+
+/* اطلاعات تماس */
+.contact-info-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    height: 100%;
+}
+
+body.dark-mode .contact-info-card {
+    background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+}
+
+.contact-info-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(37, 99, 235, 0.2);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+body.dark-mode .contact-item {
+    background: #0f172a;
+}
+
+.contact-item:hover {
+    transform: translateX(-5px);
+}
+
+.contact-item-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary-color), #60a5fa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.contact-item-content { flex: 1; }
+
+.contact-item-label {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 0.2rem;
+}
+
+.contact-item-value {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* فرم تماس */
+.contact-form-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .contact-form-card {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.contact-form-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(37, 99, 235, 0.2);
+}
+
+.form-group { margin-bottom: 1.2rem; }
+
+.form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+    background: #f8f9fa;
+}
+
+body.dark-mode .form-control {
+    background: #0f172a;
+    border-color: #334155;
+    color: #f9fafb;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+}
+
+body.dark-mode .form-control:focus {
+    background: #1e293b;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), #60a5fa);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+}
+
+.btn-submit.success {
+    background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+/* پیام موفقیت */
+.alert-success {
+    display: none;
+    padding: 1rem;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.alert-success.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 991px) {
+    .contact-wrapper { padding: 2rem; }
+    .contact-info-card,
+    .contact-form-card { margin-bottom: 1.5rem; }
+}
