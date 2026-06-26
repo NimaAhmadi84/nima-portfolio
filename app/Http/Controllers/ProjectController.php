@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Project;
 
 class ProjectController extends Controller
 {
@@ -11,39 +11,22 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        // پروژه‌های نمونه (بعداً از دیتابیس خوانده می‌شود)
-        $projects = [
-            [
-                'id' => 1,
-                'title' => 'پنل مدیریت فروشگاهی',
-                'description' => 'یک پنل مدیریت کامل برای فروشگاه‌های آنلاین با قابلیت مدیریت محصولات، سفارشات و کاربران.',
-                'technologies' => ['Laravel', 'MySQL', 'Bootstrap'],
-                'image' => null,
-                'github_url' => '#',
-                'demo_url' => '#',
-                'category' => 'وب‌اپلیکیشن',
-            ],
-            [
-                'id' => 2,
-                'title' => 'ربات تلگرام مدیریت وظایف',
-                'description' => 'ربات تلگرام برای مدیریت وظایف روزانه با قابلیت یادآوری و دسته‌بندی.',
-                'technologies' => ['PHP', 'Telegram API', 'MySQL'],
-                'image' => null,
-                'github_url' => '#',
-                'demo_url' => '#',
-                'category' => 'ربات',
-            ],
-            [
-                'id' => 3,
-                'title' => 'سیستم مدیریت محتوا',
-                'description' => 'یک CMS ساده با قابلیت مدیریت مقالات، کاربران و دسته‌بندی‌ها.',
-                'technologies' => ['Laravel', 'Vue.js', 'MySQL'],
-                'image' => null,
-                'github_url' => '#',
-                'demo_url' => '#',
-                'category' => 'وب‌اپلیکیشن',
-            ],
-        ];
+        // خوندن پروژه‌های منتشر شده از دیتابیس
+        $projects = Project::where('is_published', true)
+            ->orderBy('sort_order')
+            ->get()
+            ->map(function ($project) {
+                return [
+                    'id' => $project->id,
+                    'title' => $project->title,
+                    'description' => $project->description,
+                    'technologies' => $project->technologies ?? [],
+                    'image' => $project->image ? asset('storage/' . $project->image) : null,
+                    'github_url' => $project->github_url ?: '#',
+                    'demo_url' => $project->demo_url ?: '#',
+                    'category' => $project->category,
+                ];
+            });
 
         return view('projects.index', compact('projects'));
     }
@@ -53,7 +36,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        // بعداً از دیتابیس خوانده می‌شود
-        return view('projects.show', compact('id'));
+        $project = Project::findOrFail($id);
+        return view('projects.show', compact('project'));
     }
 }
