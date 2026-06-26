@@ -23,7 +23,7 @@
                     <a class="nav-link px-3" href="#skills">مهارت‌ها</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3" href="#portfolio">نمونه‌کارها</a>
+                   <a class="nav-link px-3" href="{{ route('projects.index') }}">نمونه‌کارها</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link px-3" href="#contact">درخواست همکاری</a>
