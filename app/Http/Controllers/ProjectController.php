@@ -11,16 +11,21 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        // خوندن پروژه‌های منتشر شده از دیتابیس
         $projects = Project::where('is_published', true)
             ->orderBy('sort_order')
             ->get()
             ->map(function ($project) {
+                // تبدیل technologies به آرایه
+                $technologies = $project->technologies;
+                if (is_string($technologies)) {
+                    $technologies = json_decode($technologies, true) ?? [];
+                }
+
                 return [
                     'id' => $project->id,
                     'title' => $project->title,
                     'description' => $project->description,
-                    'technologies' => $project->technologies ?? [],
+                    'technologies' => $technologies ?: [],
                     'image' => $project->image ? asset('storage/' . $project->image) : null,
                     'github_url' => $project->github_url ?: '#',
                     'demo_url' => $project->demo_url ?: '#',

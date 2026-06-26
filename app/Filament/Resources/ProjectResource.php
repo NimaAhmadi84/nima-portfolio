@@ -35,13 +35,13 @@ class ProjectResource extends Resource
                             ->required()
                             ->maxLength(255)
                             ->columnSpanFull(),
-                        
+
                         Forms\Components\Textarea::make('description')
                             ->label('توضیحات')
                             ->required()
                             ->rows(4)
                             ->columnSpanFull(),
-                        
+
                         Forms\Components\TextInput::make('category')
                             ->label('دسته‌بندی')
                             ->default('وب‌اپلیکیشن')
@@ -54,12 +54,12 @@ class ProjectResource extends Resource
                             ->label('لینک گیت‌هاب')
                             ->url()
                             ->maxLength(255),
-                        
+
                         Forms\Components\TextInput::make('demo_url')
                             ->label('لینک دمو')
                             ->url()
                             ->maxLength(255),
-                        
+
                         Forms\Components\FileUpload::make('image')
                             ->label('تصویر پروژه')
                             ->image()
@@ -73,12 +73,13 @@ class ProjectResource extends Resource
                             ->label('تکنولوژی‌ها')
                             ->helperText('هر تکنولوژی رو وارد کن و Enter بزن')
                             ->separator(',')
+                            ->reorderable()
                             ->columnSpanFull(),
-                        
+
                         Forms\Components\Toggle::make('is_published')
                             ->label('منتشر شده')
                             ->default(true),
-                        
+
                         Forms\Components\TextInput::make('sort_order')
                             ->label('ترتیب نمایش')
                             ->numeric()
@@ -94,31 +95,31 @@ class ProjectResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->label('شناسه')
                     ->sortable(),
-                
+
                 Tables\Columns\ImageColumn::make('image')
                     ->label('تصویر')
                     ->circular(),
-                
+
                 Tables\Columns\TextColumn::make('title')
                     ->label('عنوان')
                     ->searchable()
                     ->sortable()
                     ->limit(30),
-                
+
                 Tables\Columns\TextColumn::make('category')
                     ->label('دسته‌بندی')
                     ->searchable()
                     ->badge()
                     ->color('primary'),
-                
+
                 Tables\Columns\IconColumn::make('is_published')
                     ->label('منتشر شده')
                     ->boolean(),
-                
+
                 Tables\Columns\TextColumn::make('sort_order')
                     ->label('ترتیب')
                     ->sortable(),
-                
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('تاریخ ایجاد')
                     ->dateTime('Y/m/d')
